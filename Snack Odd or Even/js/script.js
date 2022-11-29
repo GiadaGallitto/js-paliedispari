@@ -12,44 +12,55 @@
 
 // PARI O DISPARI
 
-let oddOrEven;
+const buttonGame = document.querySelector("div.buttons-game .btn");
 
-do{
-    oddOrEven = prompt(`Scegli pari o dispari`);
-} while ((oddOrEven != "pari") && (oddOrEven != "dispari"));
+buttonGame.addEventListener("click", function(){
 
-do{
-    userNumber = parseInt(prompt(`Inserisci un numero da 1 a 5`));
-} while ((userNumber < 1) || (userNumber > 5));
-
-function getRandomNumber(numMin, numMax){
-    const randomNumber = Math.floor(Math.random() * (numMax - numMin + 1) + numMin);
-    return randomNumber;
-}
-
-let softwareNum = getRandomNumber(1, 5);
-
-console.log(softwareNum);
-
-
-function isEven(number){
-    if(number % 2 === 0){
-        return "pari"
-    } else {
-        return "dispari"
+    let oddOrEven;
+    
+    do{
+        oddOrEven = prompt(`Scegli pari o dispari`);
+    } while ((oddOrEven != "pari") && (oddOrEven != "dispari"));
+    
+    console.log(`L'utente ha scelto ${oddOrEven}`)
+    
+    do{
+        userNumber = parseInt(prompt(`Inserisci un numero da 1 a 5`));
+    } while ((userNumber < 1) || (userNumber > 5));
+    
+    console.log(`Il numero scelto dall'utente è ${userNumber}`)
+    
+    function getRandomNumber(numMin, numMax){
+        return randomNumber = Math.floor(Math.random() * (numMax - numMin + 1) + numMin);
     }
-}
+    
+    let softwareNum = getRandomNumber(1, 5);
+    
+    console.log(`Il numero generato dal software è ${softwareNum}`);
+    
+    
+    function isEven(number){
+        return number % 2 === 0
+    }
+    
+    let sum = userNumber + softwareNum;
+    
+    console.log(`La somma dei due numeri è ${sum}`);
+    
+    let check = "dispari"
+    
+    if(isEven(sum)){
+        check = "pari"
+    }
+    
+    console.log(check);
+    
+    if(check != oddOrEven){
+        console.log("Hai perso!")
+        document.getElementById("output").innerHTML = `Beh mi sa che hai perso! Ahahah`
+    } else {
+        console.log("Hai vinto!")
+        document.getElementById("output").innerHTML = `Beh mi sa che hai vinto! Ma è solo fortuna...`
+    }
 
-let sum = userNumber + softwareNum;
-
-console.log(sum);
-
-let check = isEven(sum);
-
-console.log(check);
-
-if(check != oddOrEven){
-    console.log("Hai perso!")
-} else {
-    console.log("Hai vinto!")
-}
+});
