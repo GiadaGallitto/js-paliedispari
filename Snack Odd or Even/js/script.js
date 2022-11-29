@@ -31,6 +31,19 @@ let softwareNum = getRandomNumber(1, 5);
 
 console.log(softwareNum);
 
+
+function isEven(number){
+    if(number % 2 === 0){
+        return "Pari"
+    } else {
+        return "Dispari"
+    }
+}
+
 let sum = userNumber + softwareNum;
 
 console.log(sum);
+
+let check = isEven(sum);
+
+console.log(check);
