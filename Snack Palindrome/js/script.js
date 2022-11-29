@@ -12,30 +12,36 @@
 
 // PALINROMA:
 
+const buttonGame = document.querySelector("div.buttons-game .btn");
 
-function checkPalindromeWord(string){
+buttonGame.addEventListener("click", function(){
     
-    // Misuro la lunghezza della parola inserita
-    const stringLen = string.length;
-    
-    // Faccio arrivare il for fino a metà della lunghezza
-    for(let i=0; i < stringLen / 2; i++){
+    function checkPalindromeWord(string){
         
-        // Se il primo elemento (string[i]) è diverso dall'ultimo elemento (string[stringLen - 1 - i]),
-        // allora ritorno un valore chiamato come non palindromo
-        if(string[i] !== string[stringLen - 1 - i]){
-            return `Questa parola non è palindroma`
+        // Misuro la lunghezza della parola inserita
+        const stringLen = string.length;
+        
+        // Faccio arrivare il for fino a metà della lunghezza
+        for(let i=0; i < stringLen / 2; i++){
+            
+            // Se il primo elemento (string[i]) è diverso dall'ultimo elemento (string[stringLen - 1 - i]),
+            // allora ritorno un valore chiamato come non palindromo
+            if(string[i] !== string[stringLen - 1 - i]){
+                return `Questa parola non è palindroma`
+            }
         }
+        
+        // Altrimenti si baserà sul return di base (nel caso delle parole palindrome)
+        return `Questa parola è palindroma`
     }
     
-    // Altrimenti si baserà sul return di base (nel caso delle parole palindrome)
-    return `Questa parola è palindroma`
-}
+    // Creo il prompt per la verifica
+    const userWord = prompt(`Inserisci una parola`)
+    
+    // Richiamo la funzione e le assegno la variabile del prompt
+    const answer = checkPalindromeWord(userWord);
+    
+    console.log(answer)
 
-// Creo il prompt per la verifica
-const userWord = prompt(`Inserisci una parola`)
+});
 
-// Richiamo la funzione e le assegno la variabile del prompt
-const answer = checkPalindromeWord(userWord);
-
-console.log(answer)
