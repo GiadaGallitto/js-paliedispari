@@ -34,9 +34,9 @@ console.log(softwareNum);
 
 function isEven(number){
     if(number % 2 === 0){
-        return "Pari"
+        return "pari"
     } else {
-        return "Dispari"
+        return "dispari"
     }
 }
 
@@ -47,3 +47,9 @@ console.log(sum);
 let check = isEven(sum);
 
 console.log(check);
+
+if(check != oddOrEven){
+    console.log("Hai perso!")
+} else {
+    console.log("Hai vinto!")
+}
