@@ -26,21 +26,24 @@ buttonGame.addEventListener("click", function(){
             
             // Se il primo elemento (string[i]) è diverso dall'ultimo elemento (string[stringLen - 1 - i]),
             // allora ritorno un valore chiamato come non palindromo
-            if(string[i] !== string[stringLen - 1 - i]){
-                return `Questa parola non è palindroma`
-            }
+            return string[i] !== string[stringLen - 1 - i]
         }
         
         // Altrimenti si baserà sul return di base (nel caso delle parole palindrome)
-        return `Questa parola è palindroma`
     }
     
     // Creo il prompt per la verifica
     const userWord = prompt(`Inserisci una parola`)
     
-    // Richiamo la funzione e le assegno la variabile del prompt
-    const answer = checkPalindromeWord(userWord);
+    // Assegno un valore true di base per la risposta
+    let answer = `Questa parola è palindroma`
+
+    // Se invece la risposta rispecchierà la funzione basata sul false, darà una answer opposta
+    if (checkPalindromeWord(userWord)){
+        answer = `Questa parola non è palindroma`
+    }
     
+    document.getElementById("output").innerHTML = `${answer}`;
     console.log(answer)
 
 });
